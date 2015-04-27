@@ -1,3 +1,5 @@
+'use strict';
+
 describe('CalendarRange', function() {
 
   beforeEach(function() {

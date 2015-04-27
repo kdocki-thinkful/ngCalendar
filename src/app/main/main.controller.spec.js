@@ -1,22 +1,33 @@
 'use strict';
 
-describe('controllers', function(){
-  var scope;
+describe('directive', function(){
+  var elm, scope;
 
   beforeEach(module('ngCalendar'));
 
-  beforeEach(inject(function($rootScope) {
-    scope = $rootScope.$new();
+  beforeEach(inject(function($rootScope, $compile) {
+    elm = angular.element(
+      '<div class="calendar-container">' +
+        '<div my-calendar="currentDate" ng-class="{outer: !isCurrentMonth(day.date)}" class="ng-binding ng-scope calendar-cell outer">' +
+          '29' +
+        '</div>' +
+        '<div my-calendar="currentDate" ng-class="{outer: !isCurrentMonth(day.date)}" class="ng-binding ng-scope calendar-cell outer">' +
+          '30' +
+        '</div>' +
+        '<div my-calendar="currentDate" ng-class="{outer: !isCurrentMonth(day.date)}" class="ng-binding ng-scope calendar-cell outer">' +
+          '31' +
+        '</div>' +
+        '<div my-calendar="currentDate" ng-class="{outer: !isCurrentMonth(day.date)}" class="ng-binding ng-scope calendar-cell outer">' +
+          '1' +
+        '</div>' +
+        '<div my-calendar="currentDate" ng-class="{outer: !isCurrentMonth(day.date)}" class="ng-binding ng-scope calendar-cell outer">' +
+          '2' +
+        '</div>' +
+      '</div>');
+    scope = $rootScope;
+    $compile(elm)(scope);
+    scope.$digest();
   }));
 
-  it('should define more than 5 awesome things', inject(function($controller) {
-    expect(scope.awesomeThings).toBeUndefined();
 
-    $controller('MainCtrl', {
-      $scope: scope
-    });
-
-    expect(angular.isArray(scope.awesomeThings)).toBeTruthy();
-    expect(scope.awesomeThings.length > 5).toBeTruthy();
-  }));
 });
