@@ -29,5 +29,9 @@ describe('directive', function(){
     scope.$digest();
   }));
 
+  it('should ??', function() {
+    expect(??).toBe(??);
+  });
+
 
 });
