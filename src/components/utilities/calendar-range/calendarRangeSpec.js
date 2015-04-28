@@ -3,7 +3,7 @@
 describe('CalendarRange', function() {
 
   beforeEach(function() {
-    this.addMatchers({
+    jasmine.addMatchers({
       toMatchDate : function() {
         return {
           compare : function(actual, expected) {

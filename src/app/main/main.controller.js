@@ -33,9 +33,9 @@ angular.module('ngCalendar')
     })
     .directive('myCalendar', function() {
         return {
+          transclude: 'element',
           terminal: true,
           priority : 1000,
-          transclude : 'element',
           link : function(scope, element, attrs, ctrl, transclude) {
             var containerScope = scope.$new();
             var container = angular.element('<div></div>');
